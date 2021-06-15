@@ -56,6 +56,22 @@ class UsersController extends Controller
         return $user;
     }
 
+    public function upload(Request $request, User $user)
+    {
+        if($request->hasFile('cover')){
+            $user->uploadImage($request->file('cover'), 'cover');
+        }
+        if($request->hasFile('avatar')){
+            $user->uploadImage($request->file('avatar'), 'avatar');
+        }
+        $user->save();
+        // dd($request);
+    }
+
+    public function avatar(Request $request, User $user){
+        return $user->imageUrl('avatar');
+    }
+
     /**
      * Display the specified resource.
      *

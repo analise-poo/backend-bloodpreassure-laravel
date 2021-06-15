@@ -1,9 +1,10 @@
-POST http://192.168.1.10:8000/api/register
+# POST http://192.168.1.10:8000/api/register
+POST https://dry-caverns-11135.herokuapp.com/api/register
 Content-Type: application/json
 Accept: application/json
 
 {
     "name": "Alan Doe",
-    "email": "alan4@email.com",
+    "email": "alan1@email.com",
     "password": "q1w2e3r4"
 }

@@ -15,7 +15,7 @@ class LoginController extends Controller
         ]);
 
         if(Auth::attempt($request->only('email','password'))){
-            return Auth::user()->createToken('mobile')->plainTextToken;
+            return Auth::user()->createToken('identificador')->plainTextToken;
         }
 
         return response()->json(['message' => 'Credenciais inválidas.'], 404);

@@ -32,11 +32,12 @@ Route::get('/hello', function(){
 });
 
 // Route::get('users', [UsersController::class, 'index']);
-// Route::get('users/{user}', [UsersController::class, 'show']);
 // Route::get('users/{user}', function(User $user){
-//     return $user;
-// });
-// Route::post('/users', [UsersController::class, 'create']);
+//         return $user;
+//     });
+    // Route::post('/users', [UsersController::class, 'create']);
+Route::post('users/{user}/upload', [UsersController::class, 'upload']);
+Route::get('users/{user}/avatar', [UsersController::class, 'avatar']);
 
 Route::post('register', [RegisterController::class, 'register'])
     ->name('register');
@@ -44,8 +45,8 @@ Route::post('register', [RegisterController::class, 'register'])
 Route::post('login', [LoginController::class, 'login'])
     ->name('login');
 
-Route::resource('users', UsersController::class)
-    ->middleware('auth:sanctum'); // 'users.action'
+Route::resource('users', UsersController::class);
+// 'users.action'
 // index GET users - retorna a lista de todos o usuários
 // show GET users/user - retorna o usuários de id
 // create POST users - cria um novo usuário
